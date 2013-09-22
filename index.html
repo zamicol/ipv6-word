@@ -63,10 +63,16 @@
 		console.log(numbers);
 		console.log(words);
 		var sentence = "";
+		var idx;
 		for (var i = 0; i < numbers.length; ++i) {
 			console.log(numbers[i]);
 			//I have no idea why this doesn't work
-			sentence += words.indexOf(numbers[i]).toString(16);
+			// - It doesn't work because indexOf returns -1 if val
+			//   in array.. and the _index_ of the value in the
+			//   array if it does exist.
+			idx = words.indexOf(numbers[i]);
+
+			sentence += words[idx].toString();
 			//Add the colon
 			if(i < numbers.length - 1){
 				sentence += ":";
