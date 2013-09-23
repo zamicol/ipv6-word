@@ -79,10 +79,9 @@
 			//   in array.. and the _index_ of the value in the
 			//   array if it does exist.
 			idx = words.indexOf(numbers[i]);
-			console.log(numbers[i], idx, words[idx]);
 
 			if (words[idx]) {
-				sentence.push(words[idx]);
+				sentence.push(idx.toString(16));
 			}
 		}
 		document.getElementsByName('ipv6Address')[0].value = sentence.join(':');
