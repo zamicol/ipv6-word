@@ -62,23 +62,21 @@
 		var numbers = input.split(" ");
 		console.log(numbers);
 		console.log(words);
-		var sentence = "";
+		var sentence = [];
 		var idx;
 		for (var i = 0; i < numbers.length; ++i) {
-			console.log(numbers[i]);
 			//I have no idea why this doesn't work
 			// - It doesn't work because indexOf returns -1 if val
 			//   in array.. and the _index_ of the value in the
 			//   array if it does exist.
 			idx = words.indexOf(numbers[i]);
+			console.log(numbers[i], idx, words[idx]);
 
-			sentence += words[idx].toString();
-			//Add the colon
-			if(i < numbers.length - 1){
-				sentence += ":";
+			if (words[idx]) {
+				sentence.push(words[idx]);
 			}
 		}
-		document.getElementsByName('ipv6Address')[0].value = sentence;
+		document.getElementsByName('ipv6Address')[0].value = sentence.join(':');
 	}
 
 
