@@ -14,6 +14,15 @@
 	</label>
 	<br /><button onclick="convert()">Convert</button>
 	<script type="text/javascript">
+	function clean(a){
+		var i, l;
+		for (i = 0, l = a.length; i < l; i++) {
+			a[i] = a[i].replace(/\s+/g, '');
+			a[i] = a[i].replace(/\n+/g, '');
+			a[i] = a[i].replace(/\r+/g, '');
+		}
+		return a;
+	}
 	function convert(){
 		var lines;
 		var txtFile = new XMLHttpRequest();
@@ -23,7 +32,7 @@
 			if (txtFile.readyState === 4){
 				if (txtFile.status === 200){
 					allText = txtFile.responseText; 
-					words = txtFile.responseText.split("\n");
+					words = clean(txtFile.responseText.split("\n"));
 					//console.log(lines);
 
 					var addressBox = document.getElementsByName('ipv6Address')[0].value;
